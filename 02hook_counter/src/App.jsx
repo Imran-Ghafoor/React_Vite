@@ -9,7 +9,13 @@ function App() {
       // if value stop on 20
 
       // counter = counter + 1;
+
       setCounter(counter + 1);
+
+      // setCounter((preCounter) => preCounter + 1);
+      // setCounter((preCounter) => preCounter + 1);
+      // setCounter((preCounter) => preCounter + 1);
+      // setCounter((preCounter) => preCounter + 1);
     }
   };
   const removeValue = () => {
