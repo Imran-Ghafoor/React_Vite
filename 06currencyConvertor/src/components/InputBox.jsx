@@ -1,11 +1,10 @@
-import React from "react";
 import { useId } from "react";
 
 function InputBox({
   label,
   amount,
-  onAmountChnage,
-  onCurrencyChnage,
+  onAmountChange,
+  onCurrencyChange,
   currencyOptions = [],
   selectCurrency = "usd",
   amountDisable = false,
@@ -13,6 +12,7 @@ function InputBox({
   className = "",
 }) {
   const amountInputId = useId();
+
   return (
     <div className={`bg-white p-3 rounded-lg text-sm flex ${className}`}>
       <div className="w-1/2">
@@ -27,10 +27,10 @@ function InputBox({
           className="outline-none w-full bg-transparent py-1.5"
           type="number"
           placeholder="Amount"
-          disable={amountDisable}
+          disabled={amountDisable}
           value={amount}
           onChange={(e) =>
-            onAmountChnage && onAmountChnage(Number(e.target.value))
+            onAmountChange && onAmountChange(Number(e.target.value))
           }
         />
       </div>
@@ -39,13 +39,12 @@ function InputBox({
         <select
           className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
           value={selectCurrency}
-          onChange={(e) => onCurrencyChnage && onAmountChnage(e.target.value)}
-          disable={currencyDisable}
+          onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
+          disabled={currencyDisable}
         >
-          {currencyOptions.map((Currency) => (
-            <option key={Currency} value={Currency}>
-              {Currency}
-              usd
+          {currencyOptions.map((currency) => (
+            <option key={currency} value={currency}>
+              {currency}
             </option>
           ))}
         </select>
@@ -53,5 +52,4 @@ function InputBox({
     </div>
   );
 }
-
 export default InputBox;
