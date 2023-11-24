@@ -1,10 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { TodoProvider } from "./contexts";
 import "./App.css";
-import { TodoProvider } from "./Contexts/TodoContext";
-import { useEffect } from "react";
-import TodoForm from "./Components";
-import TodoItem from "./Components/TodoItems";
-
+import TodoItem from "./components/TodoItems";
+import TodoForm from "./components/TodoForm";
 // context functinality
 function App() {
   const [todos, setTodos] = useState([]);
@@ -19,7 +17,7 @@ function App() {
   const deleteTodo = (id) => {
     setTodos((prev) => prev.filter((todo) => todo.id !== id));
   };
-  const toggleCompleted = (id) => {
+  const toggleComplete = (id) => {
     setTodos((prev) =>
       prev.map((prevTodo) =>
         prevTodo.id === id
@@ -43,12 +41,12 @@ function App() {
 
   return (
     <TodoProvider
-      value={{ Todos, addTodo, updateTodo, deleteTodo, toggleCompleted }}
+      value={{ todos, addTodo, updateTodo, deleteTodo, toggleComplete }}
     >
-      <div className="bg-[#125ecf] min-h-screen py-8">
+      <div className="bg-[#073476] min-h-screen py-8">
         <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
           <h1 className="text-2xl font-bold text-center mb-8 mt-2">
-            Manage Your Todos
+            TODO APP
           </h1>
           <div className="mb-4">
             {/* Todo form goes here */}
