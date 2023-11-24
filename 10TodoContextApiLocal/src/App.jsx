@@ -45,9 +45,7 @@ function App() {
     >
       <div className="bg-[#073476] min-h-screen py-8">
         <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
-          <h1 className="text-2xl font-bold text-center mb-8 mt-2">
-            TODO APP
-          </h1>
+          <h1 className="text-5xl font-bold text-center mb-8 mt-2">TODO APP</h1>
           <div className="mb-4">
             {/* Todo form goes here */}
             <TodoForm />
